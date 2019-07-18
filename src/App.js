@@ -16,7 +16,7 @@ class App extends Component {
             <UserCreate />
           </ColorContext.Provider>
         </LanguageStore>
-        {this.state.language}
+        {/* {this.state.language} */}
       </div>
     );
   }
