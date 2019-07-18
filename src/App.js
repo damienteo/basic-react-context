@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
-import UserCreate from "./components/userCreate";
 import LanguageContext from "./contexts/languageContext";
 import ColorContext from "./contexts/colorContexts";
+
+import UserCreate from "./components/userCreate";
+import LanguageSelector from "./components/languageSelector";
 
 class App extends Component {
   state = { language: "english" };
@@ -14,19 +16,9 @@ class App extends Component {
   render() {
     return (
       <div className="ui container">
-        <div>
-          Select a Language:{" "}
-          <i
-            className="flag us"
-            onClick={() => this.onLanguageChange("english")}
-          />
-          <i
-            className="flag nl"
-            onClick={() => this.onLanguageChange("dutch")}
-          />
-        </div>
         <ColorContext.Provider value="red">
           <LanguageContext.Provider value={this.state.language}>
+            <LanguageSelector onLanguageChange={this.onLanguageChange} />
             <UserCreate />
           </LanguageContext.Provider>
         </ColorContext.Provider>
